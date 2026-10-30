@@ -609,3 +609,4 @@ async def generate_differential_diagnosis_api(current_user: dict = Depends(get_c
         return {"diagnosis": diagnosis_text, "saved": True}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+###hi heloo!!!
