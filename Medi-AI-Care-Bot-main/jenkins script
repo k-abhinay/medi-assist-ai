@@ -1,0 +1,19 @@
+node {
+
+    stage('Clone Repository') {
+        echo "Cloning ORS GitHub repository..."
+        git branch: 'main',
+            url: 'https://github.com/ssvkotamraju/ORS.git'
+    }
+
+    stage('Build & Test') {
+        echo "Building project with Maven..."
+        sh "mvn clean package"
+    }
+
+    stage('Archive Artifacts') {
+        echo "Archiving build artifacts..."
+        archiveArtifacts artifacts: 'target/*.war', fingerprint: true
+    }
+
+}
